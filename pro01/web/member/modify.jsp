@@ -3,6 +3,57 @@
 <%@ page import="com.chunjae.db.*" %>
 <%@ page import="com.chunjae.dto.*" %>
 
+<%
+    String id = (String) session.getAttribute("id"); //세션의 id 불러오기
+
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    Member mem = new Member(); //마이페이지에 담길 회원 객체 생성
+
+    DBC con = new MariaDBCon();
+    conn = con.connect();
+    if (conn != null) {
+        System.out.println("DB 연결 성공");
+    }
+
+    String pw = "";
+
+    try {
+        String sql = "select * from member where id=?"; // DB에서 로그인한 회원의 정보를 검색
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, id);
+        rs = pstmt.executeQuery();
+        if (rs.next()) { //해당 회원의 정보를 DB에서 로딩하여 회원 객체의 필드의 값으로 저장
+            mem.setId(rs.getString("id"));
+            mem.setPw(rs.getString("pw"));
+            mem.setName(rs.getString("name"));
+            mem.setEmail(rs.getString("email"));
+            mem.setTel(rs.getString("tel"));
+            mem.setRegdate(rs.getString("regdate"));
+            mem.setPoint(rs.getInt("point"));
+            pw = mem.getPw();
+        } else {
+            response.sendRedirect("/member/login.jsp");
+        }
+    } catch (SQLException e) {
+        System.out.println("SQL 구문이 처리되지 못했습니다.");
+    } finally {
+        con.close(rs, pstmt, conn);
+    }
+
+%>
+<%--<%
+    String path9 = request.getContextPath();
+%>--%>
+<%
+    String pw2 = pw.substring(0, 2);
+    for (int i = 0; i < pw.length()-2; i++){
+        pw2 += "*";
+    }
+    //12** //pw.equals(re_pw)
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +61,7 @@
     <%--/web/member/login.jsp--%>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원 가입</title>
+    <title>회원 정보 수정</title>
     <%@ include file="../head.jsp" %>
 
     <!-- 스타일 초기화 : reset.css 또는 normalize.css -->
@@ -156,65 +207,60 @@
 
     <div class="contents" id="contents">
         <div class="breadcrumb">
-            <p><a href="">HOME</a> &gt; <span>회원 가입</span></p>
+            <p><a href="">HOME</a> &gt; <span>정보 수정</span></p>
         </div>
 
         <section class="page" id="page1">
             <div class="page_wrap">
-                <h2 class="page_tit">회원 가입</h2>
+                <h2 class="page_tit">회원 정보 수정</h2>
 
                 <hr>
-                <form name="frm1" action="joinpro.jsp" method="post" onsubmit="return inform(this)">
+                <form action="modifypro.jsp" method="post">
 
                     <table class="tb1">
                         <tbody>
                         <tr>
                             <th>아이디</th>
-
-                            <td>
-                                <input type="text" name="id" id="id" class="indata" required>
-                                <button type="button" id="ck_btn" onclick="idcheck()">아이디 중복 체크</button>
-                                <input type="hidden" name="ck_item" id="ck_item" value="no">
+                            <%--disabled : 비활성화 -> 전송자체가 안됨   / readonly--%>
+                            <td><input type="text" name="id" id="id" class="indata" value="<%=mem.getId()%>" readonly>
                             </td>
                         </tr>
                         <tr>
                             <th>비밀번호</th>
+                            <%-- re_pw에 입력한 값과 pw2의 값이 같으면 원래 있던 pw를 전달,
+                                서로 다르면,re_pw로 비밀번호를 변경할 것임--%>
                             <td>
-                                <input type="password" name="pw" id="pw" class="indata" required>
+                                <input type="text" value="<%=pw2 %>" name="re_pw" id="re_pw" class="indata" required>
+                                <input type="hidden" value="<%=pw2%>" name="pw2" id="pw2" />
+                                <input type="hidden" value="<%=pw%>" name="pw" id="pw" />
                             </td>
                         </tr>
-
-                        <tr>
-                            <th>비밀번호 확인</th>
-                            <td>
-                                <input type="password" name="pw2" id="pw2" class="indata" required>
-                            </td>
-                        </tr>
-
                         <tr>
                             <th>이름</th>
-                            <td><input type="text" name="name" id="name" class="indata" required>
+                            <td><input type="text"  name="name" id="name" class="indata" value="<%=mem.getName()%>" disabled>
                             </td>
                         </tr>
 
                         <tr>
                             <th>이메일</th>
-                            <td><input type="email" name="email" id="email" class="indata" required>
+                            <td><input type="email" name="email" id="email" class="indata" value="<%=mem.getEmail()%>" required>
                             </td>
                         </tr>
 
                         <tr>
                             <th>전화번호</th>
-                            <td><input type="tel" name="tel" id="tel" class="indata" required>
+                            <td><input type="tel" name="tel" id="tel" class="indata" value="<%=mem.getTel()%>" required>
                             </td>
                         </tr>
+
+
 
 
                         <tr>
                             <td colspan="2" class="colspan">
 
-                                <input type="submit" value="회원 가입" class="inbtn"></input>
-                                <a href="/member/login.jsp" class="inbtn">로그인 페이지로</a>
+                                <input type="submit" value="회원정보 수정" class="inbtn"></input>
+                                <a href="/member/mypage.jsp" class="inbtn">마이페이지로</a>
                             </td>
                         </tr>
                         </tbody>
@@ -224,40 +270,6 @@
 
 
                 </form>
-
-                <script>
-                    function inform(frm){
-                        var ck_item = frm.ck_item;
-                        //var ck_item = document.getElementById(ck_item);
-                        if(ck_item.value != "yes"){
-                            alert("아이디 중복 검사를 진행하시기 바랍니다.");
-                            frm.id.focus();
-                            return;
-                        }
-                        var pw = frm.pw;
-                        var pw2 = frm.pw2;
-                        if(pw != pw2){
-                            alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
-                            pw.focus();
-                            return;
-                        }
-
-                    }
-                    function idcheck(){
-                        var child;
-                        var id = document.getElementById("id");
-                        if(id.value != ""){
-                            child = window.open("idcheck.jsp?id=" + id.value, "child",  "width=400, height=300, top=100, left=100, location=no, menubar=no, toolbar=no");
-                            return;
-                        }else {
-                            alert("아이디 입력란에 아이디를 입력하고, 진행하시기 바랍니다");
-                            id.focus();
-                            return;
-                        }
-                    }
-
-                </script>
-
             </div>
         </section>
     </div>

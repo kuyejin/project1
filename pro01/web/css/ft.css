@@ -13,7 +13,7 @@ padding-top: 30px; }
 .snb { float:right; }
 .snb::after { content:""; display:block; width: 100%; clear: both; }
 .snb li { float:left; margin-left: 14px; background-repeat: no-repeat;
-background-image: url("./images/ico_foot_sns.png"); margin-top:10px;
+background-image: url("../images/ico_foot_sns.png"); margin-top:10px;
 border-radius:20px; }
 .snb li a { display:block; width: 34px; height: 34px; overflow:hidden; 
 text-indent: -9999px; border-radius:20px; }

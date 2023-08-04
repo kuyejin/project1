@@ -164,7 +164,7 @@
                 <h2 class="page_tit">회원 가입</h2>
 
                 <hr>
-                <form name="frm1" action="joinpro.jsp" method="post" onsubmit="return inform(this)">
+                <form name="frm1" action="join.jsp" method="post" onsubmit="return inform(this)">
 
                     <table class="tb1">
                         <tbody>
