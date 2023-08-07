@@ -26,7 +26,7 @@
         rs = pstmt.executeQuery();
         if(rs.next()){
             out.println("<p>사용 불가능한 아이디</p>");
-            out.println("<a href ='idcheck.jsp'>아이디 중복 재검사</a>");
+            out.println("<a href ='idcheck.jsp?id="+id+"'>아이디 중복 재검사</a>");
         } else {
             out.println("<p>사용 가능한 아이디</p>");
             out.println("<button type='button' onclick='fnc1(\""+id+"\")'>"+id+"</button>");

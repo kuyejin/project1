@@ -14,9 +14,7 @@
 <div class="container">
     <form name="child" action="idload.jsp" method="post" onsubmit="return invalidCheck(this)">
         <label for="id">아이디</label>
-
         <input type="text" name="id" id="id" value="<%=id %>" placeholder="12글자 이내로">
-
         <input type="submit">아이디 중복 검사</input>
     </form>
     <script>

@@ -11,6 +11,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 가입</title>
+
+
     <%@ include file="../head.jsp" %>
 
     <!-- 스타일 초기화 : reset.css 또는 normalize.css -->
@@ -232,14 +234,14 @@
                         if(ck_item.value != "yes"){
                             alert("아이디 중복 검사를 진행하시기 바랍니다.");
                             frm.id.focus();
-                            return;
+                            return false;
                         }
-                        var pw = frm.pw;
-                        var pw2 = frm.pw2;
+                        var pw = frm.pw.value;
+                        var pw2 = frm.pw2.value;
                         if(pw != pw2){
                             alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
                             pw.focus();
-                            return;
+                            return false;
                         }
 
                     }
