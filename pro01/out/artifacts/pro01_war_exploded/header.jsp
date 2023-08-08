@@ -57,9 +57,10 @@
                 </ul>
             </li>
             <li class="item4">
-                <a href="/board/boardList.jsp" class="dp1">홍보</a>
+                <a href="/board/boardList.jsp" class="dp1">커뮤니티</a>
                 <ul class="sub">
                     <li><a href="/board/boardList.jsp">공지사항</a></li>
+                    <li><a href="/qna/qnaList.jsp">QnA</a></li>
                     <li><a href="promotion.html#news">언론보도</a></li>
                     <li><a href="promotion.html#pr">광고</a></li>
                     <li><a href="promotion.html#sns">SNS</a></li>
@@ -69,6 +70,7 @@
             <li class="item5">
                 <a href="brand.html" class="dp1">브랜드</a>
                 <ul class="sub">
+
                     <li><a href="brand.html#intro">브랜드 소개</a></li>
                     <li><a href="brand.html#organizion">유관 기관</a></li>
                 </ul>

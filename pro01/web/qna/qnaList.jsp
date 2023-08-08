@@ -1,11 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<%-- 1. 필요한 라이브러리 로딩 --%>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.*" %>
-<%@ page import="com.chunjae.dto.Board" %>
 <%@ page import="com.chunjae.db.*" %>
+<%@ page import="com.chunjae.vo.*" %>
 <%@ page import="java.util.Date" %>
+<%@ include file="../encoding.jsp"%>
+
 <%
     Connection con = null;
     PreparedStatement pstmt = null;
@@ -16,31 +17,39 @@
     con = conn.connect();
 
     //3. SQL을 실행하여 Result(공지사항목록)을 가져오기
-    String sql = "select * from board order by bno desc";
+    String sql = "SELECT q.qno AS qno, q.title AS title, q.content AS content, q.author AS author, \n" +
+            "q.resdate AS resdate,q.cnt AS cnt, q.lev AS lev, q.par AS par, m.name AS name\n" +
+            "FROM qna q, member m WHERE q.author=m.id order BY q.par DESC, q.lev ASC, q.qno ASC;\n";
     pstmt = con.prepareStatement(sql);
     rs = pstmt.executeQuery();
 
     //4.가져온 목록을 boardList(공지사항목록)에 하나 씩 담기
-    List<Board> boardList = new ArrayList<>();
+    List<Qna> qnaList = new ArrayList<>();
     while(rs.next()){
-        Board bd = new Board();
-        bd.setBno(rs.getInt("bno"));
-        bd.setTitle(rs.getString("title"));
-        bd.setContent(rs.getString("content"));
-        bd.setAuthor(rs.getString("author"));
-        bd.setResdate(rs.getString("resdate"));
-        bd.setCnt(rs.getInt("cnt"));
-        boardList.add(bd);
+        Qna qna = new Qna();
+        qna.setQno(rs.getInt("qno"));
+        qna.setTitle(rs.getString("title"));
+        qna.setContent(rs.getString("content"));
+        qna.setAuthor(rs.getString("author"));
+        qna.setResdate(rs.getString("resdate"));
+        qna.setCnt(rs.getInt("cnt"));
+        qna.setLev(rs.getInt("lev"));
+        qna.setPar(rs.getInt("par"));
+
+        qnaList.add(qna);
     }
     conn.close(rs, pstmt, con);
 %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항 목록</title>
+    <title>묻고 답하기 목록</title>
     <%@ include file="../head.jsp" %>
+
     <!-- 스타일 초기화 : reset.css 또는 normalize.css -->
     <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet">
 
@@ -106,78 +115,93 @@
         .btn_group:after { content:""; display:block; width:100%; clear: both; }
         .btn_group p {text-align: center;   line-height:3.6; }
     </style>
+
 </head>
 <body>
-<div class="container">
-    <header class="hd" id="hd">
-        <%@ include file="../header.jsp" %>
-    </header>
-    <div class="contents" id="contents">
-        <div class="breadcrumb">
-            <p><a href="/">HOME</a> &gt; <a href="">공지사항</a> &gt; <span>공지사항 목록</span></p>
-        </div>
-        <section class="page" id="page1">
-            <div class="page_wrap">
-                <h2 class="page_tit">공지사항 목록</h2>
-                <hr>
-                <table class="tb1" id ="myTable">
-                    <thead>
-                    <th class="item1">글번호</th>
-                    <th class="item2">글제목</th>
-                    <th class="item3">작성자</th>
-                    <th class="item4">작성일</th>
-                    </thead>
-                    <tbody>
-                    <%-- 5. boardList(공지사항목록)을 테이블 태그의 tr 요소를 반복하여 출력 --%>
-                    <%
-                        SimpleDateFormat ymd = new SimpleDateFormat("yyyy-MM-dd");
-                        for(Board bd:boardList) {
-                            Date d = ymd.parse(bd.getResdate());  //날짜데이터로 변경
-                            String date = ymd.format(d);    //형식을 포함한 문자열로 변경
-                    %>
-                    <tr>
-                        <td class="item1"><%=bd.getBno() %></td>
-                        <td class="item2">
-                            <%-- 6. 로그인한 사용자만 제목 부분의 a요소에 링크 중 bno 파라미터(쿼리스트링)으로 상세보기를 요청 가능--%>
-                            <% if(sid!=null) { %>
-                            <a href="/board/getBoard.jsp?bno=<%=bd.getBno() %>"><%=bd.getTitle() %></a>
-                            <% } else { %>
-                            <span><%=bd.getTitle() %></span>
-                            <% } %>
-                        </td>
-                        <td class="item3"><%=bd.getAuthor() %></td>
-                        <td class="item4"><%=date %></td>
-                    </tr>
-                    <%
-                        }
-                    %>
-                    </tbody>
-                </table>
 
-                <script>
-                    $(document).ready( function () {
-                        $('#myTable').DataTable({
-                            order:[[0, "desc"]]
-                        });
-                    });
-                </script>
+    <div class="container">
+        <header class="hd" id="hd">
+            <%@ include file="../header.jsp" %>
+        </header>
 
-                <div class="btn_group">
-                    <br><hr><br>
-                    <%-- 공지사항이므로 관리자만 글 추가 기능(링크)이 적용되도록 설정 --%>
-                    <% if(sid!=null && sid.equals("admin")) { %>
-                    <a href="/board/addBoard.jsp" class="inbtn">글쓰기</a>
-                    <% } else { %>
-                    <p>관리자만 공지사항의 글을 쓸 수 있습니다.<br>
-                        로그인한 사용자만 글의 상세내용을 볼 수 있습니다.</p>
-                    <% } %>
-                </div>
+
+        <div class="contents" id="contents">
+            <div class="breadcrumb">
+                <p><a href="/">HOME</a> &gt; <a href="/qna/qnaList.jsp">질문 및 답변</a> &gt; <span>질문 및 답변 목록</span></p>
             </div>
-        </section>
+            <section class="page" id="page1">
+                <div class="page_wrap">
+                    <h2 class="page_tit">QnA 목록</h2>
+                    <hr>
+                    <table class="tb1" id ="myTable">
+
+
+                        <thead>
+                        <th class="item1">글번호</th>
+                        <th class="item2">글제목</th>
+                        <th class="item3">작성자</th>
+                        <th class="item4">작성일</th>
+                        </thead>
+
+                        <tbody>
+
+
+                        <%
+                        SimpleDateFormat ymd = new SimpleDateFormat("yy-MM-dd");
+                        int tot = qnaList.size();
+                        for(Qna q2:qnaList) {
+                            Date d = ymd.parse(q2.getResdate());  //날짜데이터로 변경
+                            String date = ymd.format(d);    //형식을 포함한 문자열로 변경
+                        %>
+                        <tr>
+                            <td class="item1"><%=tot%></td>
+                            <td class="item2">
+                                <%--로그인 안한 -> 클릭 안되게 --%>
+                                <% if(q2.getLev() == 0){ %>
+                                    <a href="/qna/getQna.jsp?qno=<%=q2.getQno() %>"><%=q2.getTitle() %></a>
+                                <% } else { %>
+                                    <a style="padding-left: 28px;" href="/qna/getQna.jsp?qno=<%=q2.getQno() %>">[답변]<%=q2.getTitle() %></a>
+                                <% } %>
+
+                            </td>
+                            <td class="item3"><%= q2.getAuthor()%></td>
+                            <td class="item4"><%=date %></td>
+                        </tr>
+                        <%
+                        tot--;
+                        }
+                        %>
+
+                    </table>
+                    <script>
+                        $(document).ready( function () {
+                            $('#myTable').DataTable({
+                                order:[[0, "desc"]]
+                            });
+                        });
+                    </script>
+
+
+                    <a href="/qna/addQuestion.jsp" class="inbtn">글쓰기</a>
+
+                   <% if(sid != null) {%>
+                        <div class="btn_group">
+                            <a href="/qna/addQuestion.jsp?lev=0&par=0" class="inbtn">질문하기</a>
+                        </div>
+                    <% } %>
+
+                </div>
+            </section>
+
+
+        </div>
+
+
+        <footer class="ft" id="ft">
+            <%@ include file="../footer.jsp" %>
+        </footer>
     </div>
-    <footer class="ft" id="ft">
-        <%@ include file="../footer.jsp" %>
-    </footer>
-</div>
+
+
 </body>
 </html>

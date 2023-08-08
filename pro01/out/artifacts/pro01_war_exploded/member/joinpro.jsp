@@ -1,18 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-
-회원정보 insert
-
-
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.chunjae.db.*" %>
 <%@ page import="com.chunjae.dto.*" %>
+<%@ include file="../encoding.jsp"%>
 
 <%
-    request.setCharacterEncoding("utf-8");
-    response.setCharacterEncoding("utf-8");
-    response.setContentType("text/html; charset=utf-8");
-
 
     String id = request.getParameter("id");
     String pw = request.getParameter("pw");

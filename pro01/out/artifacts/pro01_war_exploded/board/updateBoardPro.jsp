@@ -18,6 +18,9 @@
     /* 3. DB 연결 */
     DBC con = new MariaDBCon();
     conn = con.connect();
+    if (conn != null) {
+        System.out.println("DB연결 성공");
+    }
 
     /* 4. SQL을 실행하여 처리된 건수 반환받기 */
     String sql = "update board set title=?, content=? where bno=?";
