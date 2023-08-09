@@ -22,7 +22,7 @@
 
     conn = dbcon.connect();  // 마리아db와 연결
     if (conn != null) {
-        System.out.println("DB연결 성공");
+        System.out.println("DB 연결 성공");
     }
 
 
@@ -42,9 +42,9 @@
 
     if(cnt > 0){
         System.out.println("삭제 완료!");
-        //response.sendRedirect("/qna/qnaList.jsp");
+        //response.sendRedirect("/qna/faqList.jsp");
         out.println("<script>alert('삭제 되었습니다');</script>");
-        out.println("<script>location.href='qnaList.jsp'</script>");
+        out.println("<script>location.href='faqList.jsp'</script>");
 
 
     }else {

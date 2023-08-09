@@ -61,6 +61,7 @@
                 <ul class="sub">
                     <li><a href="/board/boardList.jsp">공지사항</a></li>
                     <li><a href="/qna/qnaList.jsp">QnA</a></li>
+                    <li><a href="/faq/faqList.jsp">FAQ</a></li>
                     <li><a href="promotion.html#news">언론보도</a></li>
                     <li><a href="promotion.html#pr">광고</a></li>
                     <li><a href="promotion.html#sns">SNS</a></li>

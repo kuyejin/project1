@@ -49,7 +49,7 @@
 
     }else {
         System.out.println("삭제 실패");
-        //response.sendRedirect("/qna/getQna.jsp?qno=" + qno);
+        //response.sendRedirect("/qna/getFaq.jsp?qno=" + qno);
         out.println("<script>history.go(-1)</script>");
         out.println("<script>alert('삭제가 실패되었습니다.');</script>");
     }

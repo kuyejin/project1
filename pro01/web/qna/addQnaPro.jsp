@@ -24,7 +24,7 @@
     DBC dbcon = new MariaDBCon();
     conn = dbcon.connect();
     if (conn != null) {
-        System.out.println("DB연결 성공");
+        System.out.println("DB 연결 성공");
     }
 
 
@@ -60,16 +60,16 @@
     if(cnt == 2){
         out.println("<script>alert('질문 글 등록되었습니다');</script>");
         System.out.println("질문 글이 등록되었습니다.");
-        // response.sendRedirect("/qna/qnaList.jsp"); //바로 넘어가기 때문에 얼럿창xx
-        out.println("<script>location.href='qnaList.jsp'</script>");
+        // response.sendRedirect("/qna/faqList.jsp"); //바로 넘어가기 때문에 얼럿창xx
+        out.println("<script>location.href='faqList.jsp'</script>");
     } else if (cnt == 1) {
         out.println("<script>alert('답변 글 등록되었습니다');</script>");
         System.out.println("답변 글이 등록되었습니다.");
-        //response.sendRedirect("/qna/qnaList.jsp");
-        out.println("<script>location.href='qnaList.jsp'</script>");
+        //response.sendRedirect("/qna/faqList.jsp");
+        out.println("<script>location.href='faqList.jsp'</script>");
     } else {
         System.out.println("질문 및 답변 등록이 실패되었습니다.");
-        //response.sendRedirect("/qna/addQnaPro.jsp?lev="+lev+"&par="+par);
+        //response.sendRedirect("/qna/addFaqPro.jsp?lev="+lev+"&par="+par);
         out.println("<script>history.go(-1)</script>");
 
     }
@@ -80,7 +80,7 @@
     script += "history.go(-1);";
     script += "</script>";
     if (cnt > 0) {
-        response.sendRedirect("qnaList.jsp");
+        response.sendRedirect("faqList.jsp");
     } else {
         //response.sendRedirect("addBoard.jsp");
         out.println(script);

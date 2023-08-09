@@ -19,7 +19,7 @@
     DBC con = new MariaDBCon();
     conn = con.connect();
     if (conn != null) {
-        System.out.println("DB연결 성공");
+        System.out.println("DB 연결 성공");
     }
 
     /* 4. SQL을 실행하여 처리된 건수 반환받기 */
@@ -33,9 +33,9 @@
     /* 5. 처리된 건수가 0보다 크면(성공처리가 되었으면) 목록 페이지로 이동하고,
     아니면(실패처리가 되었으면), 수정할 폼 화면으로 이동한다. */
     if(cnt>0){
-        //response.sendRedirect("/qna/qnaList.jsp");
+        //response.sendRedirect("/qna/faqList.jsp");
         out.println("<script>alert('글이 수정되었습니다');</script>");
-        out.println("<script>location.href='qnaList.jsp'</script>");
+        out.println("<script>location.href='faqList.jsp'</script>");
     } else {
         response.sendRedirect("/qna/updateQna.jsp?bno="+qno);
     }
