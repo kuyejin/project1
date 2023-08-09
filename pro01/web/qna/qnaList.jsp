@@ -148,7 +148,7 @@
 
                         <%
                         SimpleDateFormat ymd = new SimpleDateFormat("yy-MM-dd");
-                        int tot = qnaList.size();
+                        int tot = qnaList.size(); // 객체가 담긴 리스트의 수
                         for(Qna q2:qnaList) {
                             Date d = ymd.parse(q2.getResdate());  //날짜데이터로 변경
                             String date = ymd.format(d);    //형식을 포함한 문자열로 변경
@@ -156,7 +156,7 @@
                         <tr>
                             <td class="item1"><%=tot%></td>
                             <td class="item2">
-                                <%--로그인 안한 -> 클릭 안되게 --%>
+                                <%--질문일때--%>
                                 <% if(q2.getLev() == 0){ %>
                                     <a href="/qna/getQna.jsp?qno=<%=q2.getQno() %>"><%=q2.getTitle() %></a>
                                 <% } else { %>
@@ -181,12 +181,10 @@
                         });
                     </script>
 
-
-                    <a href="/qna/addQuestion.jsp" class="inbtn">글쓰기</a>
-
                    <% if(sid != null) {%>
                         <div class="btn_group">
-                            <a href="/qna/addQuestion.jsp?lev=0&par=0" class="inbtn">질문하기</a>
+                            <%--질문할 때 lev = 0 , par = 0 으로 보내진다.--%>
+                            <a href="/qna/addQna.jsp?lev=0&par=0" class="inbtn">질문하기</a>
                         </div>
                     <% } %>
 

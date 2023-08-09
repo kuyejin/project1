@@ -173,19 +173,20 @@
 
                             <% if(q.getLev() == 0){%>
                                 <% if(sid != null ) {%>
-                                <a href="/qna/addQuestion.jsp?lev=1&&par=<%=q.getQno()%>" class="inbtn">답변하기</a>
+                                <%--답변하기 버튼을 클릭하면 lev = 1 , par에 현재 질문글 번호(qno)를 담아서 보낸다--%>
+                                <a href="/qna/addQna.jsp?lev=1&&par=<%=q.getQno()%>" class="inbtn">답변하기</a>
                             <% } %>
 
 
                                 <% if(sid != null && (sid.equals("admin") || sid.equals(q.getAuthor()))) {%>
                                      <a href="/qna/updateQna.jsp?qno=<%=q.getQno()%>" class="inbtn">질문수정</a>
-                                     <a href="/qna/delQna.jsp?qno=<%=q.getQno()%>" class="inbtn">질문삭제</a>
+                                     <a href="/qna/delQna.jsp?qno=<%=q.getQno()%>&lev=0" class="inbtn">질문삭제</a>
                                 <%} %>
 
                             <%} else {%>
                                 <% if(sid != null && (sid.equals("admin") || sid.equals(q.getAuthor()))) {%>
                                 <a href="/qna/updateQna.jsp?qno=<%=q.getQno()%>" class="inbtn">답변수정</a>
-                                <a href="/qna/delQna.jsp?qno=<%=q.getQno()%>" class="inbtn">답변삭제</a>
+                                <a href="/qna/delQna.jsp?qno=<%=q.getQno()%>&lev=1" class="inbtn">답변삭제</a>
                                 <%} %>
                             <% } %>
 

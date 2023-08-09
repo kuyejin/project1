@@ -2,6 +2,7 @@
 <%-- 1. 필요한 sql, db 패키지 임포트  --%>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.chunjae.db.*" %>
+<%@ include file="/encoding.jsp"%>
 <%-- 2. 인코딩 및 보내온 데이터 받기 --%>
 <%
     request.setCharacterEncoding("UTF-8");
@@ -16,6 +17,9 @@
     PreparedStatement pstmt = null;
     DBC con = new MariaDBCon();
     conn = con.connect();
+    if (conn != null) {
+        System.out.println("DB연결 성공");
+    }
 
     //4. SQL 구문 처리(insert문)
     String sql = "insert into board(title, content, author) values (?, ?, ?)";
@@ -31,7 +35,9 @@
     script += "history.go(-1);";
     script += "</script>";
     if(cnt>0){
-        response.sendRedirect("boardList.jsp");
+        out.println("<script>alert('글이 등록되었습니다.');</script>");
+        out.println("<script>location.href='boardList.jsp'</script>");
+        //response.sendRedirect("boardList.jsp");
     } else {
         //response.sendRedirect("addBoard.jsp");
         out.println(script);

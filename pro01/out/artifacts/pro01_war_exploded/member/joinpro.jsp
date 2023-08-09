@@ -37,7 +37,10 @@
         if(cnt > 0){
 
             System.out.println("회원등록 완료!");
-            response.sendRedirect("/");
+            //response.sendRedirect("/");
+            out.println("<script>alert('회원 가입이 완료되었습니다');</script>");
+            out.println("<script>location.href='/'</script>");
+
         } else {
             System.out.println("회원가입 실패");
             response.sendRedirect("/member/join.jsp");

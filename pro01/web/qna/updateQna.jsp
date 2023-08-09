@@ -8,6 +8,8 @@
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
+
+    /*getQna에서 현재 글번호를 보낸 것을 받는다.*/
     int qno = Integer.parseInt(request.getParameter("qno"));
 
     // 2. DB 연결하기

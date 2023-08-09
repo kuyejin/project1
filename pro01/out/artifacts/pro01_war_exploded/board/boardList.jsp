@@ -6,6 +6,7 @@
 <%@ page import="com.chunjae.dto.Board" %>
 <%@ page import="com.chunjae.db.*" %>
 <%@ page import="java.util.Date" %>
+<%@ include file="/encoding.jsp"%>
 <%
     Connection con = null;
     PreparedStatement pstmt = null;

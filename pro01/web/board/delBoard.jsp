@@ -5,6 +5,7 @@
 <%@ page import="com.chunjae.dto.Board" %>
 <%@ page import="com.chunjae.db.*" %>
 <%@ page import="java.util.Date" %>
+<%@ include file="/encoding.jsp"%>
 
 <%
 
@@ -33,7 +34,9 @@
 
     if(cnt > 0){
         System.out.println("삭제 완료!");
-        response.sendRedirect("/board/boardList.jsp");
+        //response.sendRedirect("/board/boardList.jsp");
+        out.println("<script>alert('글이 삭제되었습니다.');</script>");
+        out.println("<script>location.href='boardList.jsp'</script>");
     }else {
         System.out.println("삭제 실패");
         response.sendRedirect("/board/getBoard.jsp?bno=" + bno);

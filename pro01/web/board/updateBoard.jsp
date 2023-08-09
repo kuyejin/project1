@@ -3,6 +3,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="com.chunjae.db.*" %>
 <%@ page import="com.chunjae.dto.*" %>
+<%@ include file="/encoding.jsp"%>
 <%
     Connection con = null;
     PreparedStatement pstmt = null;
