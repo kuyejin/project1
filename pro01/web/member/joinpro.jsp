@@ -4,11 +4,14 @@
 <%@ page import="com.chunjae.db.*" %>
 <%@ page import="com.chunjae.dto.*" %>
 <%@ include file="../encoding.jsp"%>
+<%@ page import="com.chunjae.util.*" %>
+<%@ page import="java.security.*" %>
 
 <%
 
     String id = request.getParameter("id");
     String pw = request.getParameter("pw");
+    pw = AES256.sha256(pw);
     String name = request.getParameter("name");
     String email = request.getParameter("email");
     String tel = request.getParameter("tel");
