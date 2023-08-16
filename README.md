@@ -40,12 +40,12 @@
 
 
 #  👨‍👨‍ 협업 방식
-**파일 공유**   [![](https://camo.githubusercontent.com/5f4f9e864500236994df27a0204caec7543b79162b3e45e9edaecc499ad2186d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e6f74696f6e2d3030303030303f7374796c653d666c61742d726f756e64266c6f676f3d4e6f74696f6e266c6f676f436f6c6f723d7768697465)](https://www.notion.so/2-61e48e6a682e4d7191fc2993b91b0665)
+**파일 공유는 ⁉**   [![](https://camo.githubusercontent.com/5f4f9e864500236994df27a0204caec7543b79162b3e45e9edaecc499ad2186d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e6f74696f6e2d3030303030303f7374796c653d666c61742d726f756e64266c6f676f3d4e6f74696f6e266c6f676f436f6c6f723d7768697465)](https://www.notion.so/2-61e48e6a682e4d7191fc2993b91b0665)
+
+**소통은 ⁉** 슬랙
 
 
-
-
-#  데이터베이스 설계
+#  📊 데이터베이스 설계
 
 ## 1️⃣ 요구사항 분석
 
@@ -66,7 +66,62 @@
 #  클래스 다이어그램
 ![클래스다이어그램 (1)](https://github.com/kuyejin/project1/assets/65212187/ac5f2d7f-f8dc-4d6c-b0c4-9f3d390cc4ae)
 
-#  화면 설계도
+#  💻 화면 설계도
+🔹header - 로그인 전
+![01_header - 로그인 전](https://github.com/kuyejin/project1/assets/65212187/f0f5b725-4483-4afe-b869-f485e7dbc848)
+
+
+🔹header - 로그인 후
+![02_header - 로그인 후](https://github.com/kuyejin/project1/assets/65212187/23cd8622-dff6-4d4b-90f2-a025817cbffd)
+
+🔹header - 관리자
+![03_header - 관리자](https://github.com/kuyejin/project1/assets/65212187/c2936122-a4b2-4ec3-b718-8951de815a11)
+
+🔹footer
+![04_footer](https://github.com/kuyejin/project1/assets/65212187/ad569649-7315-4942-9cda-a3efebd5f138)
+
+🔹로그인
+![05_로그인](https://github.com/kuyejin/project1/assets/65212187/fa953edc-7de8-4848-b46e-36560311e513)
+
+🔹QnA_문제QnA.
+![06_QnA_문제QnA](https://github.com/kuyejin/project1/assets/65212187/a0c70393-d6f5-4a0f-bae4-264e2e64e2b2)
+
+🔹QnA_진로QnA
+![07_QnA_진로QnA](https://github.com/kuyejin/project1/assets/65212187/ce0e7ab5-2e0b-45b9-a659-312cc3b758cc)
+
+🔹QnA_글작성
+![08_QnA_글작성](https://github.com/kuyejin/project1/assets/65212187/aea322eb-e7c5-4c19-bf46-6bb55b81fc4e)
+
+🔹정보_입시뉴스
+![09_정보_입시뉴스](https://github.com/kuyejin/project1/assets/65212187/01f53a2c-d640-4bf4-b27e-d5853984ded4)
+
+🔹커뮤니티_글목록
+![10_커뮤니티_글목록](https://github.com/kuyejin/project1/assets/65212187/b7ef830d-328d-496e-8048-74abcdfc9a7a)
+
+🔹커뮤니티_상세 글 보기
+![11_커뮤니티_상세 글 보기](https://github.com/kuyejin/project1/assets/65212187/fb772e79-45e7-4d57-b32a-850c19a61009)
+
+🔹커뮤니티_글 작성
+![12_커뮤니티_글 작성](https://github.com/kuyejin/project1/assets/65212187/49cf886c-6184-4f28-911b-71f0a45169f8)
+
+🔹회원가입1
+![13_회원가입1](https://github.com/kuyejin/project1/assets/65212187/1146cdb0-5dff-4119-86c8-8b8485f937b4)
+
+🔹회원가입2
+![14_회원가입2](https://github.com/kuyejin/project1/assets/65212187/71a6dd55-dfc9-4cd6-8523-66a1184a0316)
+
+🔹마이페이지
+![15_마이페이지](https://github.com/kuyejin/project1/assets/65212187/f64f83f7-b2ed-4bf8-9bba-c22c26b8ce59)
+
+🔹고객센터
+![16_고객센터](https://github.com/kuyejin/project1/assets/65212187/cf07bbab-f1db-4a18-a992-9946d91e4909)
+
+🔹고객센터 - FAQ
+![17_고객센터 - FAQ](https://github.com/kuyejin/project1/assets/65212187/fae19a35-fe2a-4f18-947a-82b6aed7282e)
+
+🔹고객센터 - 문의하기![18_고객센터 - 문의하기](https://github.com/kuyejin/project1/assets/65212187/f6b1c0f0-0cd8-4b37-ae21-2dc3dc3a35a7)
+
+
 
 
 
