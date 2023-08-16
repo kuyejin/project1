@@ -1,4 +1,4 @@
-# 천재교육 풀스택 과정 1차 프로젝트 
+#                   천재교육 풀스택 과정 1차 프로젝트 
 
 ![스크린샷 2023-08-16 220827](https://github.com/kuyejin/project1/assets/65212187/e5da7ce5-3c8e-4b2b-a283-164cbd2fa902)
 
@@ -6,11 +6,18 @@
 
 # 📂 프로젝트 소개 
 
-안녕하세요! **teenTalk**은 학생들을 위한 특별한 커뮤니티 사이트입니다.   
-이 곳은 청소년들이 서로의 경험, 관심사, 의견을 공유하며 함께 성장하고 배우는 공간을 제공합니다.
+안녕하세요! **teenTalk**은 '학생 및 교사 전용 커뮤니티 사이트입니다.  
+이 곳은 서로의 경험, 관심사, 의견을 공유하며 함께 성장하고 배우는 공간을 제공합니다.
 
- 학생들에게 안전하고 유익한 온라인 환경을 제공하여  
- **서로의 경험을 공유하고 함께 성장할 수 있는 플랫폼을 제공**하는 것이 저희 팀의 기획의도 입니다.
+ 학생들과 교사들이 협력하고 소통하며
+ **서로의 경험을 공유하고 함께 성장할 수 있는 플랫폼을 제공**하는 것이   
+ 저희 팀의 기획의도 입니다.  
+ 
+
+<br/>
+  
+
+
 
   
 
@@ -18,8 +25,14 @@
 백준철
 신승원
 오세훈
-구예진
+구예진  
 
+<br/>
+
+# 🗓 개발일정
+
+
+<br/>
 
 #  🔨 개발스택
 
@@ -36,15 +49,23 @@
 ### 개발환경
 <img  src="https://img.shields.io/badge/apache tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white"> <img  src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
 <img  src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
-<img  src="https://img.shields.io/badge/intellijidea-6A5FBB?style=for-the-badge&logo=intellijidea&logoColor=white"> <img  src="https://img.shields.io/badge/mariaDB-003545?style=for-the-badge&logo=mariaDB&logoColor=white">
+<img  src="https://img.shields.io/badge/intellijidea-6A5FBB?style=for-the-badge&logo=intellijidea&logoColor=white"> <img  src="https://img.shields.io/badge/mariaDB-003545?style=for-the-badge&logo=mariaDB&logoColor=white">  
+
+<br/>
 
 
 
 
 #  👨‍👨‍ 협업 방식
-**✔ 파일 공유는 ⁉**   [![](https://camo.githubusercontent.com/5f4f9e864500236994df27a0204caec7543b79162b3e45e9edaecc499ad2186d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e6f74696f6e2d3030303030303f7374796c653d666c61742d726f756e64266c6f676f3d4e6f74696f6e266c6f676f436f6c6f723d7768697465)](https://www.notion.so/2-61e48e6a682e4d7191fc2993b91b0665)
+**✔ 파일 공유는 ⁉** &nbsp;&nbsp;  [![](https://camo.githubusercontent.com/5f4f9e864500236994df27a0204caec7543b79162b3e45e9edaecc499ad2186d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e6f74696f6e2d3030303030303f7374796c653d666c61742d726f756e64266c6f676f3d4e6f74696f6e266c6f676f436f6c6f723d7768697465)](https://www.notion.so/2-61e48e6a682e4d7191fc2993b91b0665)
 
-**✔ 소통은 ⁉** 슬랙
+**✔ 비대면 소통은 ⁉** &nbsp;&nbsp;
+<img src="https://img.shields.io/badge/slack-4A154B?style=flat&logo=slack&logoColor=white"/></a>
+
+**✔ 언제든 자유롭게 의견내기, 단 강요는 🙅‍♂️**  
+
+<br/>
+
 
 
 #  📊 데이터베이스 설계
@@ -69,11 +90,16 @@
 ![슬라이드6](https://github.com/kuyejin/project1/assets/65212187/be2d5150-d885-412e-b087-6fe975a768f9)
 ![슬라이드7](https://github.com/kuyejin/project1/assets/65212187/2b3693ef-d1d1-4ee6-b94a-5a2a7f320d38)
 ## 4️⃣ 물리적 설계
-![team1 - member](https://github.com/kuyejin/project1/assets/65212187/b05df6bc-a97f-4b1e-8e88-ce469779a794)
+![team1 - member](https://github.com/kuyejin/project1/assets/65212187/b05df6bc-a97f-4b1e-8e88-ce469779a794)  
 
+<br/>
+<br/>
 
-#  클래스 다이어그램
-![클래스다이어그램 (1)](https://github.com/kuyejin/project1/assets/65212187/ac5f2d7f-f8dc-4d6c-b0c4-9f3d390cc4ae)
+# 📐 클래스 다이어그램
+![클래스다이어그램 (1)](https://github.com/kuyejin/project1/assets/65212187/ac5f2d7f-f8dc-4d6c-b0c4-9f3d390cc4ae)  
+
+<br/>
+<br/>
 
 #  💻 화면 설계도
 🔹header - 로그인 전
