@@ -51,6 +51,10 @@
 
 ## 2️⃣ 개념적 설계
 
+### 🔹유즈케이스 (USE CASE)
+![유즈케이스](https://github.com/kuyejin/project1/assets/65212187/06b63eab-69a5-4a46-a687-ee9504319ed1)
+
+
 ## 3️⃣ 논리적 설계
 ![슬라이드1](https://github.com/kuyejin/project1/assets/65212187/35d3ae6b-baaa-493a-9717-7024ec0ac7f5)
 ![슬라이드2](https://github.com/kuyejin/project1/assets/65212187/5b853237-7dc0-4d07-bf1f-0caff9f5dab9)
