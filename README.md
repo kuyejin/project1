@@ -50,6 +50,9 @@
 #  📊 데이터베이스 설계
 
 ## 1️⃣ 요구사항 분석
+![슬라이드1](https://github.com/kuyejin/project1/assets/65212187/55be3641-041a-4677-910a-fc34cdf579e4)
+![슬라이드2](https://github.com/kuyejin/project1/assets/65212187/ac3b3d27-b9ef-453f-bf0b-760b0b084832)
+![슬라이드3](https://github.com/kuyejin/project1/assets/65212187/8f76c49e-68b3-4d2d-b1be-4842e110b9f1)
 
 ## 2️⃣ 개념적 설계
 
