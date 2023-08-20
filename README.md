@@ -17,7 +17,7 @@
 
 <br/>
   
-[클릭]:(file:///C:/Users/kooyj/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/TEENTALK.pdf)
+[클릭](file:///C:/Users/kooyj/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/TEENTALK.pdf)
 
 
   
